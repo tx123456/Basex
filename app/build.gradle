@@ -1,0 +1,139 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'walle'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        applicationId "com.tanxin.basex"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi-v7a'
+//            'armeabi', 'x86',, 'arm64-v8a', 'x86_64'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('C:/jks/yihan.jks')
+            storePassword "tx19961112"
+            keyAlias "tanxin"
+            keyPassword "tx19961112"
+        }
+        release {
+            try {
+                storeFile file('C:/jks/yihan.jks')
+                storePassword "tx19961112"
+                keyAlias "tanxin"
+                keyPassword "tx19961112"
+            } catch (ex) {
+                throw new InvalidUserDataException(ex.toString())
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 进行压缩优化
+            zipAlignEnabled false
+            // 进行混淆
+            minifyEnabled false
+            // 进行资源优化，移除无用的resource文件
+            shrinkResources false
+            // 使用的签名信息
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            // 进行混淆
+            minifyEnabled false
+            // 进行资源优化，移除无用的resource文件
+            shrinkResources false
+            // 进行压缩优化
+            zipAlignEnabled true
+            // 使用的签名信息
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
+    dexOptions {
+        jumboMode = true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation "org.jetbrains.anko:anko:0.10.8"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'androidx.appcompat:appcompat:1.2.0-alpha02'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha05'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
+    implementation 'me.jessyan:autosize:1.2.0'
+    implementation 'com.qmuiteam:qmui:2.0.0-alpha02'
+    implementation 'com.meituan.android.walle:library:1.1.6'
+    implementation 'com.blankj:utilcodex:1.26.0'
+    implementation 'me.yokeyword:fragmentationx:1.0.2'
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
+    implementation "io.reactivex.rxjava3:rxjava:3.0.0"
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+}
+
+walle {
+    // 指定渠道包的输出路径
+    apkOutputFolder = new File("C:/Users/Administrator/Desktop/channels")
+    // 定制渠道包的APK的文件名称
+    apkFileNameFormat = '${appName}-${channel}-${buildType}-v${versionName}-${versionCode}.apk'
+    // 渠道配置文件
+    channelFile = new File("${project.getProjectDir()}/channel")
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}

@@ -1,0 +1,2 @@
+rootProject.name='Basex'
+include ':app'
