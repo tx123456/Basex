@@ -13,3 +13,12 @@
 .externalNativeBuild
 .cxx
 
+.idea/codeStyles/
+.idea/gradle.xml
+.idea/kotlinCodeInsightSettings.xml
+.idea/markdown-navigator-enh.xml
+.idea/markdown-navigator.xml
+.idea/misc.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
+app/src/main/java/com/tanxin/basex/modules/main/
