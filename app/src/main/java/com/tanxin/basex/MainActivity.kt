@@ -1,12 +1,18 @@
 package com.tanxin.basex
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.qmuiteam.qmui.kotlin.onClick
+import com.tanxin.basex.common.base.BaseActivity
+import com.tanxin.basex.modules.login.activity.LoginActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun bindLayout(): Int = R.layout.activity_main
+
+    override fun initView(savedInstanceState: Bundle?) {
+        tvName.onClick {
+            LoginActivity.startActivity(getThisContext(),"loin")
+        }
     }
 }
