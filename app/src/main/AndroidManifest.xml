@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.tanxin.basex">
+    package="com.asecho.security">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
-        android:name=".MyApp"
+        android:name="com.asecho.security.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".modules.login.activity.LoginActivity"></activity>
+        <activity android:name="com.asecho.security.modules.login.activity.LoginActivity"></activity>
 
         <meta-data
             android:name="design_width_in_dp"
@@ -40,7 +40,7 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.asecho.security.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
