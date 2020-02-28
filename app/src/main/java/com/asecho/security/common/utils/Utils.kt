@@ -2,6 +2,9 @@ package com.asecho.security.common.utils
 
 import android.annotation.SuppressLint
 import android.util.Log
+import androidx.core.content.ContextCompat
+import com.asecho.security.MyApp
+import com.asecho.security.R
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -61,5 +64,8 @@ class Utils {
       }
     }
 
+    fun getThemeColor():Int{
+      return ContextCompat.getColor(MyApp.getAppContext(), R.color.app_color_blue)
+    }
   }
 }

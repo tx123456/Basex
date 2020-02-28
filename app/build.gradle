@@ -121,6 +121,9 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
     implementation "io.reactivex.rxjava3:rxjava:3.0.0"
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'com.tencent.bugly:crashreport_upgrade:1.4.5'
+    implementation 'com.tencent.bugly:nativecrashreport:3.7.1'
+
 }
 
 walle {

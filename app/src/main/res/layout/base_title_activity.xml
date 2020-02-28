@@ -6,7 +6,7 @@
     <com.qmuiteam.qmui.widget.QMUITopBar
         android:id="@+id/titleView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="?attr/qmui_topbar_height"/>
     <FrameLayout
         android:id="@+id/activityContainer"
         android:layout_width="match_parent"

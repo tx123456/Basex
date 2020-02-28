@@ -30,8 +30,16 @@
     </style>
 
     <style name="QDTopBar" parent="QMUI.TopBar">
-        <item name="qmui_topbar_height">48dp</item>
-        <item name="qmui_topbar_image_btn_height">48dp</item>
+        <item name="qmui_topbar_height">80dp</item>
+        <item name="qmui_topbar_image_btn_height">45dp</item>
+
+<!--        <item name="qmui_topbar_bg_color">?attr/app_primary_color</item>-->
+<!--        <item name="qmui_topbar_left_back_drawable_id">@mipmap/base_back_icon</item>-->
+<!--        <item name="qmui_topbar_title_color">@color/white</item>-->
+<!--        <item name="qmui_topbar_subtitle_color">@color/white</item>-->
+<!--        <item name="qmui_topbar_text_btn_color_state_list">@color/white</item>-->
+<!--        <item name="qmui_topbar_text_btn_text_size">12sp</item>-->
+<!--        <item name="qmui_topbar_title_text_size">15sp</item>-->
     </style>
 
     <style name="QDRoundButtonStyle" parent="@style/Button.Compat">
@@ -140,6 +148,18 @@
 
     <style name="View_ccc_Style"  parent="View_base">
         <item name="android:background">@color/ccc</item>
+    </style>
+
+    <style name="radiobutton_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:textColor">@color/text9</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
 </resources>

@@ -9,9 +9,10 @@ import android.os.Build;
 
 import androidx.multidex.MultiDex;
 
-import com.blankj.utilcode.util.LogUtils;
+import com.asecho.security.common.api.Constant;
 import com.blankj.utilcode.util.Utils;
 import com.meituan.android.walle.WalleChannelReader;
+import com.tencent.bugly.Bugly;
 
 import me.jessyan.autosize.AutoSize;
 import me.jessyan.autosize.AutoSizeConfig;
@@ -26,7 +27,7 @@ public class MyApp extends Application {
         context = getApplicationContext();
         Utils.init(context);
         MultiDex.install(context);
-//        Bugly.init(getApplicationContext(), Constant.Companion.getKEY_BUGLY(), false);
+        Bugly.init(getApplicationContext(), Constant.Companion.getKEY_BUGLY(), false);
         String channel = WalleChannelReader.getChannel(context);
         fitPushChannel();
         AutoSize.initCompatMultiProcess(context);
@@ -37,12 +38,12 @@ public class MyApp extends Application {
                 //系统会重绘当前的页面, 经测试在某些机型, 某些情况下系统不会重绘当前页面, ScreenUtils.getScreenSize(activity) 的参数一定要不要传Application!!!
 //                AutoSizeConfig.getInstance().setScreenWidth(ScreenUtils.getScreenSize(activity)[0]);
 //                AutoSizeConfig.getInstance().setScreenHeight(ScreenUtils.getScreenSize(activity)[1]);
-                LogUtils.d(String.format( "%s onAdaptBefore!", target.getClass().getName()));
+//                LogUtils.d(String.format( "%s onAdaptBefore!", target.getClass().getName()));
             }
 
             @Override
             public void onAdaptAfter(Object target, Activity activity) {
-                LogUtils.d(String.format("%s onAdaptAfter!", target.getClass().getName()));
+//                LogUtils.d(String.format("%s onAdaptAfter!", target.getClass().getName()));
             }
         });
     }
